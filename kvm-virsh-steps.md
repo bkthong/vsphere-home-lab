@@ -50,3 +50,18 @@ esx12 - esx12.bkhome.com - 192.168.122.12
 
 5. Use the esx console to set static IP for mgmt interface:
         - 192.168.122.11/24, 192.168.122.1 (gw)
+
+6. Update the hostname and fqdn 
+   (multiple methods available, but using esxcli here)
+   - F2 at esx console to configure
+   - Troubleshooting --> Enable shell
+   - alt-f1 to switch to shell
+   - login
+   
+   ```
+   esxcli system hostname set --host=esx11
+   esxcli system hostname set --fqdn=esx11.bkhome.com
+   ```
+
+   Ref: https://kb.vmware.com/s/article/1010821
+
