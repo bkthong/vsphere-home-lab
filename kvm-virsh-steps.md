@@ -44,3 +44,9 @@ esx12 - esx12.bkhome.com - 192.168.122.12
 
 3. As root, run the create-esx11.sh script to start the installation
 
+
+4. Setup the esx host in the UI (if using virt-viewer, release cursor by
+   pressing shift-f12)
+
+5. Use the esx console to set static IP for mgmt interface:
+        - 192.168.122.11/24, 192.168.122.1 (gw)
