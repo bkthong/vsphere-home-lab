@@ -8,6 +8,7 @@ virt-install \
               --boot uefi \
               --machine q35 \
               --disk size=50,target.bus=scsi \
-	      --cdrom /home/bk/vsphere/VMware-VMvisor-Installer-8.0U2-22380479.x86_64.iso \
+	      --cdrom /isos/VMware-VMvisor-Installer-8.0U2-22380479.x86_64.iso \
+	      --network network=default,model=e1000 \
 	      --osinfo rhel8.2
 
