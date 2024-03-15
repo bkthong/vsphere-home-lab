@@ -69,3 +69,5 @@ esx12 - esx12.bkhome.com - 192.168.122.12
 
    Ref: https://kb.vmware.com/s/article/1010821
 
+   > It is also possible to set the hostname at the console
+     management interface --> dns --> hostname --> esx11
