@@ -18,8 +18,11 @@ esx12 - esx12.bkhome.com - 192.168.122.12
    -  Reduce dhcp range from .2 - .254  to .20 - .254
       (to use static ip for esx host)
    - Update the dnsmaq domain for libvirt
+   ```
           <domain name='bkhome.com' localOnly='yes'/>
+   ```
    - map hostnames to dns, just after the <ip ..> section
+   ```
         <dns>
           <host ip='192.168.122.11'>
             <hostname>esx11.bkhome.com</hostname>
@@ -28,6 +31,7 @@ esx12 - esx12.bkhome.com - 192.168.122.12
             <hostname>esx12.bkhome.com</hostname>
           </host>
         </dns>
+   ```
    - restart the default libvirt network
 
 ```
