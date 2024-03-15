@@ -39,5 +39,8 @@ esx12 - esx12.bkhome.com - 192.168.122.12
   > When should point the esx1{1,2} DNS to 192.168.122.1 (libvirt's default network
     dnsmasq is listening on
 
+2. Place the VMVisor-xxx.iso in /isos folder 
+   (path hard coded in  create-esx11.sh script)
 
+3. As root, run the create-esx11.sh script to start the installation
 
