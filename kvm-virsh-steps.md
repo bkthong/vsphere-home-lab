@@ -52,8 +52,8 @@ esx12 - esx12.bkhome.com - 192.168.122.12
 4. Setup the esx host in the UI (if using virt-viewer, release cursor by
    pressing shift-f12)
 
-5. Use the esx console to set static IP for mgmt interface: 
-        - 192.168.122.11/24, 192.168.122.1 (gw)
+5. Use the esx console to set static IP for mgmt interface:  
+   - 192.168.122.11/24, 192.168.122.1 (gw)
 
 6. Update the hostname and fqdn 
    (multiple methods available, but using esxcli here)
