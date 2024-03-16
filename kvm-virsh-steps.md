@@ -72,3 +72,10 @@ esx12 - esx12.bkhome.com - 192.168.122.12
    > It is also possible to set the hostname at the console   
        - management interface --> dns --> hostname --> esx11
 
+
+7. Add the second 30GB disk as a data store
+   - https://192.168.122.11
+     - Storage - New Data Store
+        - name: <name>
+        - vmfs version: vmfs6
+
