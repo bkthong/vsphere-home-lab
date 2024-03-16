@@ -12,7 +12,7 @@ virt-install \
               --name esx11 \
               --memory 16384 \
               --vcpus 2 \
-              --cpu host \
+              --cpu host-passthrough \
               --boot uefi \
               --machine q35 \
               --disk size=50,target.bus=sata \
