@@ -15,8 +15,8 @@ virt-install \
               --cpu host \
               --boot uefi \
               --machine q35 \
-              --disk size=20,target.bus=sata \
               --disk size=50,target.bus=sata \
+              --disk size=30,target.bus=sata \
               --cdrom /isos/VMware-VMvisor-Installer-8.0U2-22380479.x86_64.iso \
               --network network=default,model=e1000e \
               --osinfo rhel8.2
