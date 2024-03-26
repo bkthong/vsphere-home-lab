@@ -79,3 +79,40 @@ esx12 - esx12.bkhome.com - 192.168.122.12
         - name: <name>
         - vmfs version: vmfs6
 
+## Setting up VCSA on as an embedded appliance on esxi
+
+> UI and CLI methods available for installint VCSA. Here
+  I outline the steps using the CLI method with the template
+  in this git repo
+
+1. Have a Rocky 9.2 machine/vm available to act as install client
+   - The libnsl library on Fedora Server 39 gave problems. 
+   - Hence using Rocky 9.2 as I know the libnsl works well with the
+     VCSA installer
+
+2. Copy the VCSA iso into the rocky 9.2 machine
+3. Loop mount the ISO to /mnt (or other suitable mnt point)
+4. Update the template if neccessary:   
+   (vcsa-cli-template/myvcsa.json file in this gir-repo)
+    - IP address of the new VCentre server hard coded as 192.168.122.50
+    - Existing esxi data store "hard coded as ssd"
+    - NTP using asia's ntp pool
+    - ...
+5. Copy the myvcsa.json template to the Rocky 9.2 machine user's home dir
+
+4. Commands:
+
+```
+ cd /mnt/vcsa-cli-installer/
+
+ # Check syntax of the template (if changes made)
+ lin64/vcsa-deploy install --accept-eula --verify-template-only  ~/myvcsa.json
+
+ # Run pre-check
+ lin64/vcsa-deploy install --accept-eula --precheck-only  ~/myvcsa.json
+
+ # Run actual installation. Might want to run in a tmux session if using remote 
+ # access
+ lin64/vcsa-deploy install --accept-eula ~/myvcsa.json
+```
+5. Wait for installation to complete
