@@ -1,0 +1,3 @@
+- Got the template from : https://polarclouds.co.uk/vcenter-without-dns-ntp/
+- However modfied it while referring to sample template from the vcsa iso
+  --> vcsa-cli-installer/templates/install/embedded_vCSA_on_ESXi.json

@@ -1,0 +1,43 @@
+{
+    "__version": "2.13.0",
+    "__comments": "Template: Modified from sample template",
+    "new_vcsa": {
+        "esxi": {
+            "hostname": "192.168.122.11",
+            "username": "root",
+            "password": "Vmware123!",
+            "deployment_network": "VM Network",
+            "datastore": "ssd"
+        },
+        "appliance": {
+            "thin_disk_mode": true,
+            "deployment_option": "tiny",
+            "name": "Embedded-vCenter-Server-Appliance"
+        },
+        "network": {
+            "ip_family": "ipv4",
+            "mode": "static",
+            "system_name": "192.168.122.50",
+            "ip": "192.168.122.50",
+            "prefix": "24",
+            "gateway": "192.168.122.1",
+            "dns_servers": [
+                "8.8.8.8"
+            ]
+        },
+        "os": {
+            "password": "Vmware123!",
+            "ntp_servers": "0.asia.pool.ntp.org",
+            "ssh_enable": true
+        },
+        "sso": {
+            "password": "Vmware123!",
+            "domain_name": "vsphere.local"
+        }
+    },
+    "ceip": {
+        "settings": {
+            "ceip_enabled": false
+        }
+    }
+}
