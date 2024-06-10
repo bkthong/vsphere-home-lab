@@ -3,6 +3,9 @@
   --> vcsa-cli-installer/templates/install/embedded_vCSA_on_ESXi.json
 - libnsl problem also occurs for cli method --> had to run on a rocky 9.2 machine
   instead of the fedora server 39 server
+  
+
+  # dnf install libnsl    --> otherwise the deployment will fail
 ---
 from the vcsa-iso/
 ...
