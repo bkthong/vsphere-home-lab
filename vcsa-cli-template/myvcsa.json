@@ -7,7 +7,7 @@
             "username": "root",
             "password": "Vmware123!",
             "deployment_network": "VM Network",
-            "datastore": "ssd"
+            "datastore": "iscsi-ds"
         },
         "appliance": {
             "thin_disk_mode": true,
