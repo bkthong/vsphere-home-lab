@@ -101,6 +101,12 @@ Also a second private network for vmotion dedicated traffic
         - name: <name>
         - vmfs version: vmfs6
 
+8. On host fedora consider installing ksmtuned and their services
+
+   ```
+   dnf install ksmtuned
+   systemctl start ksmtuned.service #enabled by default
+   ```
 ## Setting up VCSA on as an embedded appliance on esxi
 
 > UI and CLI methods available for installint VCSA. Here
