@@ -19,8 +19,8 @@
 # Ref: https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-esxi-801-installation-setup-guide.pdf
 virt-install \
               --name esx11 \
-              --memory 16384 \
-              --vcpus 4 \
+              --memory 14336 \
+              --vcpus 2 \
               --cpu host-passthrough \
               --boot uefi \
               --machine q35 \
