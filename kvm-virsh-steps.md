@@ -14,6 +14,8 @@
 esx11 - esx11.bkhome.com - 192.168.122.11
 esx12 - esx12.bkhome.com - 192.168.122.12
 
+Also a second private network for vmotion dedicated traffic
+
 1. Edit the libvirt default network:
    -  Reduce dhcp range from .2 - .254  to .20 - .254
       (to use static ip for esx host)
@@ -42,6 +44,13 @@ esx12 - esx12.bkhome.com - 192.168.122.12
 
   > When should point the esx1{1,2} DNS to 192.168.122.1 (libvirt's default network
     dnsmasq is listening on
+
+  CREATE second network for vmotion:
+    - enable cockpit and install cockpit-machines and configure network thru web
+        - name: vmotion-isolated
+        - isolated
+        - ip ragge: 192.168.100.*/24 (did not enable dhcp range)
+    - Activate the "vmotion-isolated" network
 
 2. Place the VMVisor-xxx.iso in /isos folder 
    (path hard coded in  create-esx11.sh script)
