@@ -26,7 +26,7 @@ virt-install \
               --machine q35 \
               --disk size=50,target.bus=sata \
               --disk size=100,target.bus=sata \
-              --cdrom /isos/VMware-VMvisor-Installer-8.0U2-22380479.x86_64.iso \
+              --cdrom /isos/VMware-VMvisor-Installer-8.0U3e-24677879.x86_64.iso \
               --network network=default,model=e1000e \
               --network network=vmotion-isolated,model=e1000e \
               --osinfo rhel8.2
