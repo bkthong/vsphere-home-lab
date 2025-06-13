@@ -56,10 +56,19 @@ Also a second private network for vmotion dedicated traffic
    (path hard coded in  create-esx11.sh script)
 
 3. As root, run the create-esx11.sh script to start the installation
-
+    
 
 4. Setup the esx host in the UI (if using virt-viewer, release cursor by
    pressing shift-f12)
+
+   > Better method is local port forwarding 5900 (~/.ssh/config)
+     LocalForward 5900 127.0.0.1:5900  #esx11 ?  -L 5900:127.0.0.1:5900
+     LocalForward 5901 127.0.0.1:5901  #esx12 ?  -L 5901:120.0.0.1;5901
+
+   Then use "remote" GUI tool on own laptop  and open url 
+            spice"://localhost:5900 
+   which is port forwarded to the remote host and you can see the 
+   console of esx11/12
 
 5. Use the esx console to set static IP for mgmt interface:  
    - 192.168.122.11/24, 192.168.122.1 (gw)
