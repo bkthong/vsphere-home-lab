@@ -2,7 +2,7 @@
 ## Installing Virtualization (KVM/libvirt)
 
 ```
-# dnf group install Virtualization
+# dnf group install virtualization
 # systemctl start libvirtd.service
 # cat /sys/module/kvm_intel/parameters/nested
   --> ensure nested virtualization allowed
