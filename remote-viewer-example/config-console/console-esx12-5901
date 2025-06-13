@@ -1,0 +1,7 @@
+[virt-viewer]
+type=spice
+host=127.0.0.1
+port=5901
+fullscreen=0
+
+[...............................GraphicsConsole]
