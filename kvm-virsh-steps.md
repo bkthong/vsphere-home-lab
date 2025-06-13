@@ -70,6 +70,10 @@ Also a second private network for vmotion dedicated traffic
    which is port forwarded to the remote host and you can see the 
    console of esx11/12
 
+   ```
+   remote-viewer --hotkeys=toggle-fullscreen=shift+f10,release-cursor=shift+f12 spice://localhost:5900
+   ```
+
 5. Use the esx console to set static IP for mgmt interface:  
    - 192.168.122.11/24, 192.168.122.1 (gw)
 
