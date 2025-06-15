@@ -131,6 +131,24 @@ Also a second private network for vmotion dedicated traffic
     - name: iscsi-data
     - device: LIO-*ISCSI*-
 
+## Setup nfs data store
+1. Using host machine /isos as nfs server share
+
+```
+dnf install nfs-utils
+systemctl enable --now nfs-server.service
+vim /etc/exports.d/isos.exports
+  - rw, no_root_squash
+```
+2. On host, open 2049/tcp
+
+```
+firewall-cmd --add-service=nfs --zone=libvirt --permanent
+firewall-cmd --reload
+```
+
+3. Login to esx11 and create a nfs4 data store 192.168.122.1:/isos
+
 ## Update esxi license from VCI
 - Deploying vcsa on esxi free 8u3 hits error.
 - need to update license from VCI comminity
