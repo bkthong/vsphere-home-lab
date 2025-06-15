@@ -107,6 +107,41 @@ Also a second private network for vmotion dedicated traffic
    dnf install ksmtuned
    systemctl start ksmtuned.service #enabled by default
    ```
+
+## Add a iscsi data store
+1. Follow steps in iscsi-target/ folder to create the iscssi target on host 
+
+2. Define the iscsi data store on esx11 (and later esc12)
+    - esx11 console
+    - storage -> Adapters -> Software iscsi 
+        - Choose enabled (radio button)
+        - Add dynamic target: 
+            192.168.122.1 (ip address of host)
+        - REFRESH
+            -> vmhba64 (appears)
+3. Go back to iscsi server (for met targetcli)
+   and update the ACL to allow the esx11 initiator name obtained
+   from the iscsi sofwareware adapter details
+   - need to rescan adapter, i also hit error and needed
+     to logout from esx11 console and relogin
+   - if all goes weel, under "devices" we will see the ISCSI disk appear
+
+
+3. Define new data store 
+    - name: iscsi-data
+    - device: LIO-*ISCSI*-
+
+## Update esxi license from VCI
+- Deploying vcsa on esxi free 8u3 hits error.
+- need to update license from VCI comminity
+
+1. ESX11 console
+2. manage -> licensing --> assign license
+3. enter license key obtained from vci communityo
+   - look for  "VMware vSphere 8 Enterprise Plus for 32 processors"
+4. Assign license
+
+
 ## Setting up VCSA on as an embedded appliance on esxi
 
 > UI and CLI methods available for installint VCSA. Here
@@ -117,14 +152,18 @@ Also a second private network for vmotion dedicated traffic
    - The libnsl library on Fedora Server 39 gave problems. 
    - Hence using Rocky 9.2 as I know the libnsl works well with the
      VCSA installer
+   - NOTE: on 20250615- tried to use fedora 42 host without having to use
+     a rocky vm to run the installer, hit the same libnsl problem
+
 
 2. Copy the VCSA iso into the rocky 9.2 machine
 3. Loop mount the ISO to /mnt (or other suitable mnt point)
 4. Update the template if neccessary:   
    (vcsa-cli-template/myvcsa.json file in this gir-repo)
     - IP address of the new VCentre server hard coded as 192.168.122.50
-    - Existing esxi data store "hard coded as ssd"
     - NTP using asia's ntp pool
+    - use the iscsi data store created on esx11
+        - (OLD) Existing esxi data store "hard coded as ssd" (OLD) 
     - ...
 5. Copy the myvcsa.json template to the Rocky 9.2 machine user's home dir
 

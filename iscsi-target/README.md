@@ -25,4 +25,14 @@ targetcli
 # IMPORTANT: libvirt zone!!
 firewall-cmd --add-service=iscsi-target --zone=libvirt  --permanent 
 firewall-cmd --reload
+
+
+# After configuiring the esx11 software isci adapter, get its iqn so that 
+# we can add acl to authorize access
+targetcli
+(targetcli) /iscsi/IQN/tpg1/acls create wwn=IQN_ESX11 
+(targetcli) > / saveconfig
+(targetcli) > exit
+
+
 ```
