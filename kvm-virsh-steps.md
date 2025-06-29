@@ -162,6 +162,11 @@ firewall-cmd --reload
 
 ## Setting up VCSA on as an embedded appliance on esxi
 
+> Note: 20250629
+  Now imn using a rhel7 container instead to solve
+  the libnsl problem. Refer to 'vcsa-deploy-via--ubi7-container.md
+  on the steps
+
 > UI and CLI methods available for installint VCSA. Here
   I outline the steps using the CLI method with the template
   in this git repo
