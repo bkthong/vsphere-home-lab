@@ -1,18 +1,23 @@
 [20250622]
+
 # Using ubi7 container to deploy vcsa instead of a vm.
-# - more lightweight and convenient
-# - need to install iputils, libnsl already instaled in ubi7
+ - more lightweight and convenient
+ - need to install iputils, libnsl already instaled in ubi7
 
-# container processes cannot access read-only mounted isos
+1. To workaround container processes cannot access read-only mounted isos
 
+```
 tmux
 sudo setenforce 0 
+```
 
-# download container to install libnsl2 and run vcsa insaller
-# tried minimal and micro, but needed much more software for vcsa
-# insaller. So using ubo standard instead
-# tried with ubi9:latest , error
-# ubi7 has libnsl.so.1 and not using lib.nsl.2
+2. Download container to install libnsl2 and run vcsa insaller
+-  tried minimal and micro, but needed much more software for vcsa
+-  insaller. So using ubo standard instead
+-  tried with ubi9:latest , error
+-  ubi7 has libnsl.so.1 and not using lib.nsl.2
+
+```
 podman pull registry.access.redhat.com/ubi7
 
 #/mnt is where vcsa iso is mounted
@@ -32,5 +37,7 @@ podman run -it -v /mnt:/mnt -v ~/vcsa-temp/:~/vcsa-temp registry.access.redhat.c
 sudo setenforce 1
 
 (exit tmux)
+
+```
 
 
